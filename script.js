@@ -30,6 +30,16 @@ const formEvent = (e) => {
   localStorage.setItem(`user_${userId}`, JSON.stringify(userData));
   alert(`${userId}님, 회원가입이 왼료되었습니다🫧`);
 
+  gtag("config", "G-F6YHJGPYE4", {
+    user_id: userId,
+    debug_mode: true,
+  });
+
+  gtag("event", "sign_up", {
+    user_id: userId,
+    method: "local_form",
+  });
+
   form.reset();
 };
 
